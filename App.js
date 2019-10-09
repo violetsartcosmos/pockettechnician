@@ -11,6 +11,7 @@ import {
   StyleSheet,
   View,
   Text,
+  TouchableNativeFeedback
 } from 'react-native';
 
 import {
@@ -22,16 +23,26 @@ import FlatListBasics from './src/menu/menu';
 class App extends React.Component {
 
   constructor(props) {
+    super(props);
     this.state = {
       enter: true,
-    }
+    };
+    this.onEnter = this.onEnter.bind(this);
+  }
+
+  onEnter() {
+    this.setState({enter:false});
   }
 
   render() {
     return this.state.enter ? (
       <View style={{flex: 1}}>
           <View style={{flex: .9}}>
-              <Text style={styles.header} >Pocket Tech</Text>
+              <TouchableNativeFeedback
+                onPress={this.onEnter}
+                background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''}>
+                  <Text style={styles.header} >Pocket Tech</Text>
+              </TouchableNativeFeedback>
           </View>
           <View style={{flex: .1}}>
               <Text>Pocket Tech R </Text>
