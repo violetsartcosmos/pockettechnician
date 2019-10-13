@@ -18,24 +18,26 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 
-import FlatListBasics from './src/menu/menu';
+import { FlatListBasics as Menu } from './src/menu/menu';
+import Home from './src/home/home';
+import Profile from './src/profile/profile';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      enter: true,
-    };
     this.onEnter = this.onEnter.bind(this);
   }
 
   onEnter() {
-    this.setState({enter:false});
+    // go home
+    this.props.navigation.navigate('Home')
   }
 
   render() {
-    return this.state.enter ? (
+    return (
       <View style={{flex: 1}}>
           <View style={{flex: .9}}>
               <TouchableNativeFeedback
@@ -49,8 +51,6 @@ class App extends React.Component {
               <Text>2019 All rights reserved </Text>
           </View>
       </View> 
-    ) : (
-      <FlatListBasics />
     );
   }
   
@@ -83,4 +83,17 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+
+const MainNavigator = createStackNavigator({
+  Enter: {screen: App},
+  Home: {screen: Home},
+  Profile: {screen: Profile},
+},
+{
+  initialRouteName: 'Enter',
+  // initialRouteName: 'Home', // use for testing you can change this but default to above Enter screen
+});
+
+const AppContainer = createAppContainer(MainNavigator);
+
+export default AppContainer;

@@ -46,3 +46,12 @@ Errors:
 FAQs
 How do I configure on device options/ debugger?
 - https://developer.android.com/studio/debug/dev-options (Android)
+Documentation for React Native?
+- https://facebook.github.io/react-native/docs
+Documentation for React Native Navigation?
+- https://reactnavigation.org/docs/en/getting-started.html
+
+Helpers:
+- CSS
+    - float in React Native?
+        - https://stackoverflow.com/questions/32030050/how-can-you-float-right-in-react-native/47961683
