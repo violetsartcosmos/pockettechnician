@@ -11,7 +11,7 @@ import {
   StyleSheet,
   View,
   Text,
-  TouchableNativeFeedback
+  TouchableNativeFeedback,
 } from 'react-native';
 
 import {
@@ -23,6 +23,8 @@ import Home from './src/home/home';
 import Profile from './src/profile/profile';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
+
+// CSS
 
 class App extends React.Component {
 
@@ -87,11 +89,11 @@ const styles = StyleSheet.create({
 const MainNavigator = createStackNavigator({
   Enter: {screen: App},
   Home: {screen: Home},
-  Profile: {screen: Profile},
+  profile: {screen: Profile},
 },
 {
-  initialRouteName: 'Enter',
-  // initialRouteName: 'Home', // use for testing you can change this but default to above Enter screen
+  // initialRouteName: 'Enter',
+  initialRouteName: 'profile', // use for testing you can change this but default to above Enter screen
 });
 
 const AppContainer = createAppContainer(MainNavigator);

@@ -8,27 +8,29 @@ import {
     TouchableNativeFeedback,
 } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const Home = ({
     navigation
 }) => {
     goToProfile = () => {
-        navigation.navigate('Profile');
+        navigation.navigate('profile');
     }
     return (
         <ImageBackground
-            source={require('../assets/futureWorld.jpeg')}
+            source={require('../assets/blue.jpg')}
             style={{width: '100%', height: '100%'}}
             >
             <View style={{flex: 1, padding: 10}}>
                 <View style={{flex: .4, alignSelf: 'flex-end', padding: 10}}>
                     <Image 
-                        source={require('../assets/carEducation.png')}
+                        source={require('../assets/carBroken.png')}
                         style={styles.carEducation}
                     />
                     <Text style={styles.text}>Education</Text>
                 </View>
-                <View style={{flex: .4}}>
+                <View style={{flex: .4, alignSelf: 'flex-start'}}>
                     <Image 
                         source={require('../assets/carBreakdown.png')}
                         style={styles.carBreakdown}
@@ -60,7 +62,6 @@ const styles = StyleSheet.create({
     },
     text: {
         color: 'ghostwhite',
-        backgroundColor: 'black',
         width: 100,
         textAlign: 'center',
         alignSelf: 'center',
